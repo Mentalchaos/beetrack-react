@@ -1,0 +1,15 @@
+.search-icon {
+    color: orange;
+    padding: 10px;
+}
+
+.search-container {
+    display: flex;
+    padding: 10px;
+}
+
+.search-input {
+    background-color: white !important;
+    max-width: 300px;
+    border-radius: 0 !important;
+}
