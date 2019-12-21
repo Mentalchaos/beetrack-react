@@ -2,17 +2,18 @@ import React from 'react';
 import './index.css';
 import { ModalManager } from 'react-dynamic-modal';
 import MyModal from '../MyModal';
+import { textDictionary } from '../../../constants/text-dictionary';
 
 const openModal = () => {
-    ModalManager.open(<MyModal />);
+    ModalManager.open( <div className="eaea"> <MyModal /></div>);
 }
 
 const CreateNewUser = () => {
     return (
         <div className="newUserContainer">
-            <div onClick={ () => openModal()} className="btn btn-block btn-primary btn-warning">
-                <span className="glyphicon glyphicon-plus-sign"/>
-                Nuevo contacto
+            <div onClick={ () => openModal()} className="addUserButton btn btn-block btn-primary btn-warning">
+                <span className="icon-plus glyphicon glyphicon-plus-sign"/>
+                <p className="newContactText">{ textDictionary.newContactText }</p>
             </div>
         </div>
     )

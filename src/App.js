@@ -9,18 +9,18 @@ class App extends Component {
             data: [],
             initialData: [],
             filteredData: [],
-            currentPage: 1
+            currentPage: 1,
+            pageLimit: 5
         }
     }
 
-    // This helps the search to look for users using the ID instead of name
-    // cuz ID is easier to write and test
+    // This helps the search to look for users using the NAME
     filterData = e => {
         const { initialData } = this.state;
 
         let filteredData = [...initialData]
         .map(data => data)
-        .filter(data => data.id === Number(e.target.value));
+        .filter(data => data.name.toLowerCase() === e.target.value.toLowerCase());
 
         this.setState({
             filteredData: filteredData
@@ -34,8 +34,10 @@ class App extends Component {
     }
 
     nextPage = () => {
-        const { initialData, currentPage } = this.state;
-        const maxPage = Math.round(initialData.length / 5);
+        const { initialData, currentPage, pageLimit } = this.state;
+        
+        // This was made to support only
+        const maxPage = Math.ceil(initialData.length / pageLimit);
 
         // This test if you dont have more users in the next page
         // If you dont, then its not necessary to go to the next page
@@ -48,7 +50,7 @@ class App extends Component {
         }
     }
 
-    // Going to the previousPage and added a conditional cuz page 1 doesnt exist
+    // This goes to the previousPage and also added a conditional cuz page 0 doesnt exist
     previousPage = () => {
         if(this.state.currentPage === 1){
             return;
@@ -76,14 +78,16 @@ class App extends Component {
     }
 
     // Fetching data to map the users, using limit=5 per page
+    // Idk which was the limit for page so I used this
     getUsersData = () => {
-        fetch(`${userDataEndpoint}?_limit=5&_page=${this.state.currentPage}`)
+        const { currentPage, pageLimit } = this.state;
+
+        fetch(`${userDataEndpoint}?_limit=${pageLimit}&_page=${currentPage}`)
         .then( users => {
             return users.json();
         }).then( jsonData => {
             this.setState({
                 data: jsonData,
-
             })
         }).catch( err => {
             console.log("If it works don't touch it ",err);
@@ -91,7 +95,7 @@ class App extends Component {
     }
 
     render (){
-        const { data, filteredData } = this.state;
+        const { data, filteredData, currentPage } = this.state;
         const { filterData, nextPage, previousPage } = this;
 
         // Filtered data here
@@ -103,6 +107,7 @@ class App extends Component {
                         filterData={filterData}
                         nextPage={nextPage}
                         previousPage={previousPage}
+                        currentPage={currentPage}
                     />
                 </div>
             )
@@ -115,11 +120,24 @@ class App extends Component {
                     filterData={filterData}
                     nextPage={nextPage}
                     previousPage={previousPage}
+                    currentPage={currentPage}
                 />
             </div>
         )
     }
 }
+
+/*
+
+Use this for colors
+
+.test::after{
+ content:"g"
+ color:yellow;
+}
+<p class="test">strin</p>
+
+*/
 
 App.displayName = 'App';
 

@@ -1,3 +1,20 @@
 .newUserContainer {
-    margin-left: 50%;
+    margin-left: 60%;
+}
+
+.glyphicon.glyphicon-plus-sign {
+    color: white;
+}
+
+.addUserButton {
+    color: white;
+    display: flex !important;
+}
+
+.icon-plus {
+    font-size: 2em;
+}
+
+.newContactText {
+    margin: 3px;
 }

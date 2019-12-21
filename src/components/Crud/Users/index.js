@@ -1,6 +1,7 @@
 import React from 'react';
 import UserDescription from './UserDescription';
 import PropTypes from 'prop-types';
+import { textDictionary } from '../../../constants/text-dictionary';
 
 const Users = ({ data }) => {
     return ( 
@@ -8,8 +9,8 @@ const Users = ({ data }) => {
             <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Nombre </th>
-                        <th>Descripcion</th>
+                        <th>{ textDictionary.name }</th>
+                        <th>{ textDictionary.description }</th>
                     </tr>
                 </thead>
                 <tbody>

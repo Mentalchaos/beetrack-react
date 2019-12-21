@@ -7,7 +7,8 @@ import Users from './Users';
 import Search from './Search';
 import ChangePages from './ChangePages';
 
-const Crud = ({ data, filterData, nextPage, previousPage }) =>  {
+const Crud = ({ data, filterData, nextPage, previousPage, currentPage }) =>  {
+    console.log(currentPage);
     return (
         <div>
             <Title companyName="Beetrack" />
@@ -16,6 +17,7 @@ const Crud = ({ data, filterData, nextPage, previousPage }) =>  {
             <ChangePages 
                 nextPage={nextPage}
                 previousPage={previousPage}
+                currentPage={currentPage}
             />
         </div>
     )

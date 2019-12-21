@@ -1,0 +1,15 @@
+.changePagesContainer {
+    text-align: right;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+.buttonChangePages {
+    background-color: #fec106;
+    border: none;
+    border-radius: 3px;
+}
+
+.buttonChangePages:focus {
+    outline: none !important;
+}

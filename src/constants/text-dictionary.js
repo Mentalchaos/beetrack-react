@@ -5,12 +5,13 @@ const textDictionary = {
     addNewContact: 'Agregar nuevo contacto',
     urlProfileImage: 'Url imagen de perfil',
     name: 'Nombre',
-    descritpion: 'Descripción',
+    description: 'Descripción',
     fillAllInputs: 'Debes rellenar todos los campos',
     saveUser: 'Guardar',
-    removeUser: 'Eliminar usuario',
+    removeUser: 'Eliminar',
     previousPage: 'Pagina anterior',
-    nextPage: 'Pagina siguiente'
+    nextPage: 'Pagina siguiente',
+    newContactText: 'Nuevo contacto'
 }
 
 export { textDictionary };

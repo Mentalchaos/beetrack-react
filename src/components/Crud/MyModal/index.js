@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Effect } from 'react-dynamic-modal';
 import { textDictionary } from '../../../constants/text-dictionary';
+import './index.css';
 
 class MyModal extends Component {
     handleSubmit(e) {
@@ -42,7 +43,7 @@ class MyModal extends Component {
         const { photo , name, description } = data;
 
         // Watching if data is empty and then showing a message if necessary
-        if(!photo.length && !name.length && !description.length){
+        if(!photo.length || !name.length || !description.length){
             validateMessage.hidden = false;
             return event.preventDefault();
         } else {
@@ -59,24 +60,23 @@ class MyModal extends Component {
     render(){
        return (
           <Modal
-             effect={Effect.FlipVertical3D}>
-                <form>
-                    <div>{ textDictionary.addNewContact }</div>
+             effect={Effect.FlipVertical3D} className="modalContainer">
+                <form className="createUserForm">
+                    <h1 className="modalTitle"><strong>{ textDictionary.addNewContact }</strong></h1>
                     <div className="form-group">
-                        <label htmlFor="formGroupExampleInput">{ textDictionary.urlProfileImage }</label>
-                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Example input" isrequired="true" />
+                        <label className="modalInputs">{ textDictionary.urlProfileImage }</label>
+                        <input type="text" className="form-control" id="formGroupExampleInput" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="formGroupExampleInput2">{ textDictionary.name }</label>
-                        <input onChange={e => this.validateName(e.target)} type="text" className="form-control" id="formGroupExampleInput2" placeholder="Another input" isrequired="true" />
+                        <label className="modalInputs">{ textDictionary.name }</label>
+                        <input onChange={e => this.validateName(e.target)} type="text" className="form-control" isrequired="true" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="formGroupExampleInput2">{ textDictionary.description }</label>
-                        <textarea className="form-control" aria-label="With textarea" isrequired="true" />
+                        <label className="modalInputs">{ textDictionary.description}</label>
+                        <textarea className="form-control" aria-label="With textarea" />
                         <span className="validateFields" hidden>{ textDictionary.fillAllInputs }</span>
                     </div>
-                
-                    <button onClick={e => this.handleSubmit(e)} type="submit" className="btn btn-warning">{ textDictionary.saveUser}</button>
+                    <div className="buttonContainer"><button onClick={e => this.handleSubmit(e)} type="submit" className="btn btn-warning saveButton">{ textDictionary.saveUser}</button></div>
                 </form>
           </Modal>
        );
