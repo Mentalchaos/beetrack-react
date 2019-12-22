@@ -36,7 +36,7 @@ class App extends Component {
     nextPage = () => {
         const { initialData, currentPage, pageLimit } = this.state;
         
-        // This was made to support only
+        // This was made to support only the limit set in state
         const maxPage = Math.ceil(initialData.length / pageLimit);
 
         // This test if you dont have more users in the next page
@@ -126,18 +126,6 @@ class App extends Component {
         )
     }
 }
-
-/*
-
-Use this for colors
-
-.test::after{
- content:"g"
- color:yellow;
-}
-<p class="test">strin</p>
-
-*/
 
 App.displayName = 'App';
 

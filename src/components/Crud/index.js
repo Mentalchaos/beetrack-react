@@ -8,7 +8,6 @@ import Search from './Search';
 import ChangePages from './ChangePages';
 
 const Crud = ({ data, filterData, nextPage, previousPage, currentPage }) =>  {
-    console.log(currentPage);
     return (
         <div>
             <Title companyName="Beetrack" />

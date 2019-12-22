@@ -25,7 +25,7 @@
     height: 100%;
 }
 
-.eaea > div > div {
+.modalContainer > div > div {
     border-radius: 1px !important;
     height: 430px !important;
     width: 530px !important;

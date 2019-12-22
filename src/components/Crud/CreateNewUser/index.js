@@ -5,7 +5,7 @@ import MyModal from '../MyModal';
 import { textDictionary } from '../../../constants/text-dictionary';
 
 const openModal = () => {
-    ModalManager.open( <div className="eaea"> <MyModal /></div>);
+    ModalManager.open( <div className="modalContainer"> <MyModal /></div>);
 }
 
 const CreateNewUser = () => {
